@@ -43,7 +43,9 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>
-                                    Edit | Hapus
+                                    <a href="/pendaftaran/{{ $item->id }}/edit" class="btn btn-primary">
+                                        Edit
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

@@ -63,16 +63,35 @@ class PendaftaranController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['pendaftaran'] = \App\Models\Pendaftaran::findOrFail($id);
+        return view('pendaftaran_edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
-    }
+{
+    $validasiData = $request->validate([
+        'kode_pendaftaran' => 'required|unique:pendaftarans,kode_pendaftaran,' . $id,
+        'nama_calon_siswa' => 'required',
+        'tempat_lahir' => 'required',
+        'alamat' => 'required',
+        'tanggal_lahir' => 'required',
+        'jenis_kelamin' => 'required',
+        'asal_sekolah' => 'required',
+        'nomor_hp' => 'required',
+        'email' => 'required|email', // Adjust this validation rule as needed
+    ]);
+
+    $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);
+    $pendaftaran->fill($validasiData);
+    $pendaftaran->save();
+
+    flash('Data berhasil diperbarui')->success();
+    return back();
+}
+
 
     /**
      * Remove the specified resource from storage.
