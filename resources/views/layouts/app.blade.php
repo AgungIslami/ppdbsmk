@@ -37,6 +37,11 @@
                     <li class="nav-item">
                         <a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran</a>
                     </li>
+                    <li class="dropdown-item">
+                        <a href="{{ route('pendaftaran.laporan') }}" class="nav-link">
+                            Laporan PPDB
+                        </a>
+                    </li>
                     @endauth
                     </ul>
 

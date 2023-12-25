@@ -46,6 +46,12 @@
                                     <a href="/pendaftaran/{{ $item->id }}/edit" class="btn btn-primary">
                                         Edit
                                     </a>
+                                    <form action="pendaftaran/{{ $item->id }}" method="POST" class="d-inline"
+                                    onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                                    @method("DELETE")
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

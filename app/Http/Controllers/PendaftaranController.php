@@ -98,6 +98,16 @@ class PendaftaranController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);
+        $pendaftaran->delete();
+        flash('Data telah dihapus');
+        return back();
+    }
+
+    public function laporan()
+    {
+        $data['pendaftaran'] = \App\Models\Pendaftaran::all();
+        $data['judul'] = 'Laporan PPDB';
+        return view('pendaftaran_laporan',$data);
     }
 }

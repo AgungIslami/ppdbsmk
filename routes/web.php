@@ -18,6 +18,8 @@ Route::resource('pendaftaran', PendaftaranController::class);
 
 Route::resource('kelas', App\Http\Controllers\KelasController::class);
 
+Route::get('pendaftaran/laporan', [PendaftaranController::class, 'laporan'])->name('pendaftaran.laporan');
+
 Route::get('profil', [App\Http\Controllers\ProfilController::class, 'index']);
 
 Route::get('/', function () {
