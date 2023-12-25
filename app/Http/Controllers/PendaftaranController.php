@@ -11,7 +11,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        $data['pendaftaran'] = \App\Models\Pendaftaran::paginate(5);
+        $data['pendaftaran'] = \App\Models\Pendaftaran::paginate(3);
         $data['judul'] = 'Data-data Pendaftaran';
         return view('pendaftaran_index',$data);
     }

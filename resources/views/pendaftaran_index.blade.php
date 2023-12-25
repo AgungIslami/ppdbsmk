@@ -48,8 +48,8 @@
                             </tr>
                             @endforeach
                         </tbody>
-                    </table>
                 </table>
+                {{ $pendaftaran->links() }}
                 </div>
             </div>
         </div>
