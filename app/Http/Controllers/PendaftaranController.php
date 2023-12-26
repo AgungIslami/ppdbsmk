@@ -61,7 +61,7 @@ class PendaftaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
         $data['pendaftaran'] = \App\Models\Pendaftaran::findOrFail($id);
         return view('pendaftaran_edit', $data);

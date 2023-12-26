@@ -14,6 +14,7 @@ use App\Http\Controllers\PendaftaranController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('pendaftaran/edit', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit');
 Route::get('pendaftaran/laporan', [PendaftaranController::class, 'laporan'])->name('pendaftaran.laporan');
 Route::get('profil', [App\Http\Controllers\ProfilController::class, 'index']);
 Route::resource('kelas', App\Http\Controllers\KelasController::class);

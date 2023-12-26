@@ -65,7 +65,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Data Pendaftaran</h6>
+                        <h6 class="collapse-header">Pilihan</h6>
                         <a class="collapse-item" href="{{ route('pendaftaran.create') }}">Daftar</a>
                         <a class="collapse-item" href="{{ route('pendaftaran.index') }}">Lihat</a> 
                     </div>
@@ -74,7 +74,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ asset('sbadmin2') }}/#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{ asset('sbadmin2') }}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Data Pendaftar</span>
@@ -83,8 +83,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrasi</h6>
-                        <a class="collapse-item" href="{{ asset('sbadmin2') }}/">Tampilkan</a>
-                        <a class="collapse-item" href="{{ asset('sbadmin2') }}/">Ubah</a>
+                        <a class="collapse-item" href="{{ route('pendaftaran.index') }}">Tampilkan</a>
+                        <a class="collapse-item" href="{{ route('pendaftaran.edit') }}">Ubah</a>
                     </div>
                 </div>
             </li>
