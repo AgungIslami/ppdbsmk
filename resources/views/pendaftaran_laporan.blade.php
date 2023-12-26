@@ -50,7 +50,6 @@
                 <br>
                 <br>
                 <br>
-                <br>
                 <h5>Kepala Sekolah</h5>
             </div>
         </div>
