@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan PPDB</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    <div class="container-fluid">
+@extends('layouts.sbadmin2')
+@section('content')
+
+<div class="container-fluid">
         <div class="row justify-container">
             <div class="col-md-12">
                 <center>
@@ -54,5 +48,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

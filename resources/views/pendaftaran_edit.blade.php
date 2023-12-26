@@ -1,9 +1,7 @@
-@extends('layouts.sbadmin2')
-@section('content')
-
-<div class="container">
+p
+<div class="container-fluid">
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
 
     <div class="card">
         <div class="card-header">Ubah Data Calon Siswa {{ $pendaftaran->nama_calon_siswa}}

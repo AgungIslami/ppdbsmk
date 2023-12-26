@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('sbadmin2') }}/index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -67,7 +67,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pilihan</h6>
                         <a class="collapse-item" href="{{ route('pendaftaran.create') }}">Daftar</a>
-                        <a class="collapse-item" href="{{ route('pendaftaran.index') }}">Lihat</a> 
                     </div>
                 </div>
             </li>
@@ -84,7 +83,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrasi</h6>
                         <a class="collapse-item" href="{{ route('pendaftaran.index') }}">Tampilkan</a>
-                        <a class="collapse-item" href="{{ route('pendaftaran.edit') }}">Ubah</a>
+                        <a class="collapse-item" href="{{ route('pendaftaran.laporan') }}">Laporan Pendaftar</a>
                     </div>
                 </div>
             </li>
@@ -92,10 +91,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -187,11 +182,19 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ asset('sbadmin2') }}/login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+    </form>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('sbadmin2') }}/vendor/jquery/jquery.min.js"></script>
