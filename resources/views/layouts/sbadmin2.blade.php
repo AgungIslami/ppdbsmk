@@ -35,7 +35,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">PPDB<sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">PPDB<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -78,16 +78,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Data Pendaftar</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Administrasi</h6>
+                        <a class="collapse-item" href="">Tampilkan</a>
+                        <a class="collapse-item" href="">Ubah</a>
                     </div>
                 </div>
             </li>
@@ -109,7 +107,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Laporan</h6>
                         <a class="collapse-item" href="{{ asset('sbadmin2') }}/login.html">Login</a>
                         <a class="collapse-item" href="{{ asset('sbadmin2') }}/register.html">Register</a>
                         <a class="collapse-item" href="{{ asset('sbadmin2') }}/forgot-password.html">Forgot Password</a>
