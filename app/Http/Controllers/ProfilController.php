@@ -8,6 +8,7 @@ class ProfilController extends Controller
 {
     public function index()
     {
-        return "Selamat siang";
+        ['profil'];
+        return view('profil_index');
     }
 }
