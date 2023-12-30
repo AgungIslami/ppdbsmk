@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\SeleksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,10 @@ use App\Http\Controllers\PendaftaranController;
 */
 Route::get('pendaftaran/laporan', [PendaftaranController::class, 'laporan'])->name('pendaftaran.laporan');
 Route::get('profil', [App\Http\Controllers\ProfilController::class, 'index']);
+Route::get('pendaftaran/profil', [App\Http\Controllers\ProfilController::class, 'index']);
 Route::resource('kelas', App\Http\Controllers\KelasController::class);
 Route::resource('pendaftaran', PendaftaranController::class);
+Route::resource('seleksi', SeleksiController::class);
 
 
 Route::get('/', function () {

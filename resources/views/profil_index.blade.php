@@ -1,26 +1,29 @@
 @extends('layouts.sbadmin2')
 @section('content')
     
-    <div class="container">
+ <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header">{{ __('Profile') }}</div>
 
-        <div>
-            <img class="img-profile rounded-circle" src="img/undraw_profile.svg" alt="Profile Image">
+                <div class="card-body">
+                <div>
+            <img class="img-profile rounded-circle" src="{{ asset('sbadmin2') }}/img/undraw_profile.svg" alt="Profile Image " width="100" height="100">
         </div>
         <div>
-            <h2>Nama Pengguna</h2>
-            <p>Email: user@example.com</p>
-            <p>Alamat: Jl. Contoh No. 123</p>
-            <!-- Tambahkan informasi profil lainnya sesuai kebutuhan -->
+            <br>
+        <a src="profil">
+                                    {{ Auth::user()->name }}
+                                    <br>
+            <a src="email">
+                {{ Auth::user()->email }}            <!-- Tambahkan informasi profil lainnya sesuai kebutuhan -->
         </div>
-
-    <!-- Tambahkan script JavaScript jika diperlukan -->
-    <!-- <script src="script.js"></script> -->
-            </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+@endsection
+
 
