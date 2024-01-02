@@ -25,7 +25,7 @@ class SeleksiController extends Controller
             'Diterima' => 'Diterima',
             'Ditolak' => 'Ditolak',
         ];
-        $data['pendaftaran'] = \App\Models\Pendaftaran::selectRaw("id, concat(kode_pendaftaran, ' - ', nama_calon_siswa) as tampil")->pluck('tampil', 'id');
+        $data['pendaftaran'] = \App\Models\Pendaftaran::selectRaw("id, concat(id_pendaftar, ' - ', nama_calon_siswa) as tampil")->pluck('tampil', 'id');
         return view('seleksi_create', $data);
     }
 

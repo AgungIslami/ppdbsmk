@@ -6,6 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
+                    Hasil Seleksi PPDB
                 </div>
                 <div class="card-body">
                 <table class="table table-bordered table-hover table-striped">
