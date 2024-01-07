@@ -6,7 +6,13 @@
     <div class="col-md-12">
 
     <div class="card">
-        <div class="card-header">
+        <div class="card-header">            
+            @auth
+                Semoga Sukses {{ Auth::user()->name }}
+            @else
+            Semoga Sukses
+            @endauth
+
         </div>
             <div class="card-body">
                 <form action="/pendaftaran" method="POST">
@@ -38,12 +44,12 @@
                     <span class="text-danger">{{ $errors->first('tanggal_lahir') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
-                        <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                        <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                        </select>
-                        <span class="text-danger">{{ $errors->first('jenis_kelamin') }}</span>
+                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                    <select class="form-select custom-select" name="jenis_kelamin" id="jenis_kelamin">
+                    <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                    <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    </select>
+                    <span class="text-danger">{{ $errors->first('jenis_kelamin') }}</span>
                     </div>
                     <div class="form-group mt-3">
                         <label for="asal_sekolah">Asal Sekolah</label>

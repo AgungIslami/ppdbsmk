@@ -31,7 +31,7 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                 <div class="col-lg-6 ">
-                                <img src="{{ asset('sbadmin2') }}/img/bg_register.jpg" width="500" height="500">
+                                <img src="{{ asset('sbadmin2') }}/img/bg_register2.jpg" width="500" height="500">
                             </div>
                         <div class="p-5">
                             <div class="text-center">
