@@ -19,19 +19,19 @@
                     @method('POST')
                     @csrf
                     <div class="form-group mt-1">
-                        <label for="kode_pendaftaran">Kode Pendaftaran</label>
-                        <input class="form-control" type="text" name="kode_pendaftaran" value="{{ old('kode_pendaftaran') }}">
-                        <span class="text-danger">{{ $errors->first('kode_pendaftaran') }}</span>
+                        <label for="id_pendaftaran">Kode Pendaftaran</label>
+                        <input class="form-control" type="text" name="id" value="{{ old('id_pendaftaran') }}">
+                        <span class="text-danger">{{ $errors->first('id_pendaftaran') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="nama_calon_siswa">Nama Calon Siswa</label>
-                        <input class="form-control" type="text" name="nama_calon_siswa" value="{{ old('nama_calon_siswa') }}">
-                        <span class="text-danger">{{ $errors->first('nama_calon_siswa') }}</span>
+                        <label for="nama_peserta">Nama Peserta</label>
+                        <input class="form-control" type="text" name="nama_peserta" value="{{ old('nama_peserta') }}">
+                        <span class="text-danger">{{ $errors->first('nama_peserta') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="tempat_lahir">Tempat Lahir</label>
-                        <input class="form-control" type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}">
-                        <span class="text-danger">{{ $errors->first('tempat_lahir') }}</span>
+                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                        <input class="form-control" type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
+                        <span class="text-danger">{{ $errors->first('tanggal_lahir') }}</span>
                     </div>
                     <div class="form-group mt-3">
                         <label for="alamat">Alamat</label>
@@ -39,9 +39,14 @@
                         <span class="text-danger">{{ $errors->first('alamat') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input class="form-control" type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
-                    <span class="text-danger">{{ $errors->first('tanggal_lahir') }}</span>
+                        <label for="telepon">Telepon</label>
+                        <input class="form-control" type="text" name="telepon" value="{{ old('telepon') }}">
+                        <span class="text-danger">{{ $errors->first('telepon') }}</span>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="email">E-Mail</label>
+                        <input class="form-control" type="text" name="email" value="{{ old('email') }}">
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
                     </div>
                     <div class="form-group mt-3">
                     <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
@@ -52,20 +57,16 @@
                     <span class="text-danger">{{ $errors->first('jenis_kelamin') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="asal_sekolah">Asal Sekolah</label>
-                        <input class="form-control" type="text" name="asal_sekolah" value="{{ old('asal_sekolah') }}">
-                        <span class="text-danger">{{ $errors->first('asal_sekolah') }}</span>
+                        <label for="sekolah_asal">Asal Sekolah</label>
+                        <input class="form-control" type="text" name="sekolah_asal" value="{{ old('sekolah_asal') }}">
+                        <span class="text-danger">{{ $errors->first('sekolah_asal') }}</span>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="nomor_hp">Nomor HP</label>
-                        <input class="form-control" type="text" name="nomor_hp" value="{{ old('nomor_hp') }}">
-                        <span class="text-danger">{{ $errors->first('nomor_hp') }}</span>
+                        <label for="tanggal_pendaftaran">Tanggal Pendaftaran</label>
+                        <input class="form-control" type="date" name="tanggal_pendaftaran" value="{{ old('tanggal_pendaftaran') }}">
+                        <span class="text-danger">{{ $errors->first('tanggal_pendaftaran') }}</span>
                     </div>
-                    <div class="form-group mt-3">
-                        <label for="email">E-Mail</label>
-                        <input class="form-control" type="text" name="email" value="{{ old('email') }}">
-                        <span class="text-danger">{{ $errors->first('email') }}</span>
-                    </div>
+
                     <div class="form-group mt-2">
                         <button type="submit" class="btn btn-primary">SIMPAN</button>                        
                     </div>

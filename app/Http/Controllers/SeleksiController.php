@@ -25,7 +25,7 @@ class SeleksiController extends Controller
             'Diterima' => 'Diterima',
             'Ditolak' => 'Ditolak',
         ];
-        $data['pendaftaran'] = \App\Models\Pendaftaran::selectRaw("id, concat(id_pendaftar, ' - ', nama_calon_siswa) as tampil")->pluck('tampil', 'id');
+        $data['pendaftaran'] = \App\Models\Pendaftaran::selectRaw("id, concat(id, ' - ', id) as tampil")->pluck('tampil', 'id');
         return view('seleksi_create', $data);
     }
 
@@ -35,9 +35,10 @@ class SeleksiController extends Controller
     public function store(Request $request)
     {
         $validasiData = $request->validate([
-            'kode_seleksi' => 'required|unique:seleksis,kode_seleksi',
-            'nama_calon_siswa' => 'required',
-            'hasil' => 'required',
+            'id_seleksi' => 'required|unique:seleksis,id_seleksi',
+            'id_pendaftaran' => 'required',
+            'nilai_rata_rata' => 'required',
+            'hasil_seleksi' => 'required',
         ]);
         $seleksi = \App\Models\Seleksi::create($validasiData);
 

@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->kode_seleksi}}</td>
-                                <td>{{ $item->nama_calon_siswa }}</td>
+                                <td>{{ $item->pendaftaran_id }}</td>
                                 <td>{{ $item->hasil }}</td>
                             </tr>
                             @endforeach

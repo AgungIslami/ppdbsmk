@@ -34,15 +34,14 @@ class PendaftaranController extends Controller
     public function store(Request $request)
     {
         $validasiData = $request->validate([
-            'kode_pendaftaran' => 'required|unique:pendaftarans,kode_pendaftaran',
-            'nama_calon_siswa' => 'required',
-            'tempat_lahir' => 'required',
-            'alamat' => 'required',
+            'id_pendaftaran' => 'required|unique:pendaftarans,id_pendaftaran',
+            'nama_peserta' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'asal_sekolah' => 'required',
-            'nomor_hp' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
             'email' => 'required',
+            'sekolah_asal' => 'required',
+            'tanggal_pendaftaran' => 'required',
         ]);
         $pendaftaran = \App\Models\Pendaftaran::create($validasiData);
 
@@ -73,16 +72,15 @@ class PendaftaranController extends Controller
     public function update(Request $request, string $id)
 {
     $validasiData = $request->validate([
-        'kode_pendaftaran' => 'required|unique:pendaftarans,kode_pendaftaran,' . $id,
-        'nama_calon_siswa' => 'required',
-        'tempat_lahir' => 'required',
-        'alamat' => 'required',
+        'id_pendaftaran' => 'required|unique:pendaftarans,id_pendaftaran',
+        'nama_peserta' => 'required',
         'tanggal_lahir' => 'required',
-        'jenis_kelamin' => 'required',
-        'asal_sekolah' => 'required',
-        'nomor_hp' => 'required',
-        'email' => 'required|email', // Adjust this validation rule as needed
-    ]);
+        'alamat' => 'required',
+        'telepon' => 'required',
+        'email' => 'required',
+        'sekolah_asal' => 'required',
+        'tanggal_pendaftaran' => 'required',
+]);
 
     $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);
     $pendaftaran->fill($validasiData);

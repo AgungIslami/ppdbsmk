@@ -13,22 +13,27 @@
                     <form action="/seleksi" method="POST">
                         @csrf
                         <div class="form-group mt-1">
-                            <label for="kode_seleksi">Kode Seleksi</label>
-                            <input class="form-control" type="text" name="kode_seleksi" value="{{ old('kode_seleksi') }}">
-                            <span class="text-danger">{{ $errors->first('kode_seleksi') }}</span>
+                            <label for="id_seleksi">ID</label>
+                            <input class="form-control" type="text" name="id_seleksi" value="{{ old('id_seleksi') }}">
+                            <span class="text-danger">{{ $errors->first('id_seleksi') }}</span>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="nama_calon_siswa">Nama Calon Siswa</label>
-                            <input class="form-control" type="text" name="nama_calon_siswa" value="{{ old('nama_calon_siswa') }}">
-                            <span class="text-danger">{{ $errors->first('nama_calon_siswa') }}</span>
+                            <label for="id_pendaftaran">Kode Seleksi</label>
+                            <input class="form-control" type="text" name="id_pendaftaran" value="{{ old('id_pendaftaran') }}">
+                            <span class="text-danger">{{ $errors->first('id_pendaftaran') }}</span>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="hasil">Hasil</label>
-                            <select class="form-select" name="hasil" id="hasil">
-                                <option value="Diterima" {{ old('hasil') == 'Diterima' ? 'selected' : '' }}>Diterima</option>
-                                <option value="Ditolak" {{ old('hasil') == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
+                            <label for="nilai_rata_rata">Nilai Rata-rata</label>
+                            <input class="form-control" type="text" name="nilai_rata_rata" value="{{ old('nilai_rata_rata') }}">
+                            <span class="text-danger">{{ $errors->first('nilai_rata_rata') }}</span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="hasil_seleksi">Hasil</label>
+                            <select class="form-select" name="hasil_seleksi" id="hasil_seleksi">
+                                <option value="Diterima" {{ old('hasil_seleksi') == 'Lulus' ? 'selected' : '' }}>Lulus</option>
+                                <option value="Ditolak" {{ old('hasil_seleksi') == 'Tidak Lulus' ? 'selected' : '' }}>Tidak Lulus</option>
                             </select>
-                            <span class="text-danger">{{ $errors->first('hasil') }}</span>
+                            <span class="text-danger">{{ $errors->first('hasil_seleksi') }}</span>
                         </div>
                         <div class="form-group mt-2">
                             <button type="submit" class="btn btn-primary">SIMPAN</button>
