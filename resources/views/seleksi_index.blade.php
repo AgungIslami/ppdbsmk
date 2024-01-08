@@ -13,8 +13,9 @@
                                 <tr>
                                     <td>ID</td>
                                     <td>Nama Peserta</td>
-                                    <td>Status</td>
                                     <td>Nilai</td>
+                                    <td>Status</td>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,12 +27,12 @@
                                                 {{ $item->Pendaftaran->nama_peserta }}
                                             </div>
                                         </td>
+                                        <td>{{ $item->nilai_rata_rata }}</td>
                                         <td>
                                             <div>
                                                 {{ $item->Pendaftaran->Status->nama }}
                                             </div>
                                         </td>
-                                        <td>{{ $item->nilai_rata_rata }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

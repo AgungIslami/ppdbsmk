@@ -10,31 +10,34 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td>id</td>
-                            <td>Kode Pendaftaran</td>
-                            <td>Nama Calon Siswa</td>
-                            <td>Tempat Lahir</td>
-                            <td>Alamat</td>
+                            <td>ID</td>
+                            <td>Nama Peserta</td>
                             <td>Tanggal Lahir</td>
-                            <td>Jenis Kelamin</td>
-                            <td>Asal Sekolah</td>
-                            <td>Nomor HP</td>
-                            <td>E-Mail</td>
+                            <td>Alamat</td>
+                            <td>Telepon</td>
+                            <td>Email</td>
+                            <td>Sekolah Asal</td>
+                            <td>Status</td>
+                            <td>Tanggal Pendaftaran</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($pendaftaran as $a)
                             <tr>
                                 <td>{{ $a->id }}</td>
-                                <td>{{ $a->kode_pendaftaran }}</td>
-                                <td>{{ $a->nama_calon_siswa }}</td>
-                                <td>{{ $a->tempat_lahir }}</td>
-                                <td>{{ $a->alamat }}</td>
+                                <td>{{ $a->nama_peserta }}</td>
                                 <td>{{ $a->tanggal_lahir }}</td>
-                                <td>{{ $a->jenis_kelamin }}</td>
-                                <td>{{ $a->asal_sekolah }}</td>
-                                <td>{{ $a->nomor_hp }}</td>
+                                <td>{{ $a->alamat }}</td>
+                                <td>{{ $a->telepon }}</td>
                                 <td>{{ $a->email }}</td>
+                                <td>{{ $a->sekolah_asal }}</td>
+                                <td>
+                                    <div>
+                                        {{ $a->Status->nama }}
+                                    </div>
+                                </td>
+                                <td>{{ $a->created_at }}</td>
+                                <td>{{ $a->updated_at }}</td>
                             </tr>
                         @endforeach
                     </tbody>

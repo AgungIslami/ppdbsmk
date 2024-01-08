@@ -18,9 +18,10 @@ use App\Http\Controllers\SeleksiController;
 */
 
 Route::middleware('auth')->group(function() {
-    Route::get('pendaftaran/laporan', [PendaftaranController::class, 'laporan'])->name('pendaftaran.laporan');
+Route::get('pendaftaran/laporan', [PendaftaranController::class, 'laporan'])->name('pendaftaran.laporan');
 Route::get('pendaftaran/profil', [App\Http\Controllers\ProfilController::class, 'index']);
 Route::resource('pendaftaran', App\Http\Controllers\PendaftaranController::class);
+Route::get('seleksi/create', [App\Http\Controllers\SeleksiController::class, 'create'])->name('seleksi.create');
 Route::resource('kelas', App\Http\Controllers\KelasController::class);
 Route::get('profil', [App\Http\Controllers\ProfilController::class, 'index']);
 Route::resource('seleksi', SeleksiController::class);

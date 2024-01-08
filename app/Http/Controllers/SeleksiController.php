@@ -13,8 +13,8 @@ class SeleksiController extends Controller
      */
     public function index()
     {
-        $data ['seleksi'] = Seleksi::paginate(5); // Ambil semua data seleksi dari model Seleksi
-    return view('seleksi_index',$data);
+        $data['seleksi'] = Seleksi::paginate(5); // Ambil semua data seleksi dari model Seleksi
+        return view('seleksi_index', $data);
     }
 
     /**
@@ -22,14 +22,11 @@ class SeleksiController extends Controller
      */
     public function create()
     {
-        $data['$hasil'] = [
-            'Diterima' => 'Diterima',
-            'Ditolak' => 'Ditolak',
-        ];
-        $data['pendaftaran'] = \App\Models\Pendaftaran::selectRaw("id, concat(id, ' - ', id) as tampil")->pluck('tampil', 'id');
-        return view('seleksi_create', $data);
+        $pendaftarans = Pendaftaran::all(); // Replace with your actual query to get the pendaftarans
+    
+        return view('seleksi_create', ['pendaftarans' => $pendaftarans]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -39,12 +36,11 @@ class SeleksiController extends Controller
             'id_seleksi' => 'required|unique:seleksis,id_seleksi',
             'id_pendaftaran' => 'required',
             'nilai_rata_rata' => 'required',
-            'hasil_seleksi' => 'required',
         ]);
         $seleksi = \App\Models\Seleksi::create($validasiData);
 
-    flash('Selesai')->success();
-    return back();
+        flash('Selesai')->success();
+        return back();
     }
 
     /**

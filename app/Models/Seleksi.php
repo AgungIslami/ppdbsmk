@@ -15,7 +15,7 @@ class Seleksi extends Model
 
     public function pendaftaran(): BelongsTo
     {
-        return $this->belongsTo(Pendaftaran::class, 'id_pendaftaran'); // Adjust the foreign key if necessary
+        return $this->belongsTo(Pendaftaran::class, 'foreign_key', 'local_key' ,'id_pendaftaran'); // Adjust the foreign key if necessary
     }
 
     public function status():BelongsTo

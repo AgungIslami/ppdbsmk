@@ -47,7 +47,7 @@ class PendaftaranController extends Controller
         ]);
        $pendaftaran = new \App\Models\Pendaftaran();
     $pendaftaran->fill($validasiData);
-    $pendaftaran->status = '1';
+    $pendaftaran->id_status = '1';
     $pendaftaran->save();
 
     flash('Anda sudah terdaftar')->success();
