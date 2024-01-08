@@ -12,10 +12,9 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        
         $data['pendaftaran'] = \App\Models\Pendaftaran::paginate(3);
         $data['judul'] = 'Data-data Pendaftaran';
-        return view('pendaftaran_index',$data);
+        return view('pendaftaran_index', $data);
     }
 
     /**
@@ -27,7 +26,6 @@ class PendaftaranController extends Controller
         $data['route'] = 'pendaftaran.store';
         $data['method'] = 'POST';
         $data['tombol'] = 'SIMPAN';
-        
 
         return view('pendaftaran_create', $data);
     }
@@ -38,20 +36,28 @@ class PendaftaranController extends Controller
     public function store(Request $request)
     {
         $validasiData = $request->validate([
-            'nama_peserta' => 'required ',
+            'nama_peserta' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'sekolah_asal' => 'required',            
+            'sekolah_asal' => 'required',
+            'id_status' => 'required', // Assuming you have a field in your form for id_status
         ]);
-       $pendaftaran = new \App\Models\Pendaftaran();
-    $pendaftaran->fill($validasiData);
-    $pendaftaran->id_status = '1';
-    $pendaftaran->save();
 
-    flash('Anda sudah terdaftar')->success();
-    return back();
+        // You can add further validation logic for 'id_status' if needed
+
+        $pendaftaran = new \App\Models\Pendaftaran();
+        $pendaftaran->fill($validasiData);
+
+        // You can set id_status based on your form or business logic
+        // For example, you can set it to '1' as a default if not provided in the form
+        $pendaftaran->id_status = $request->input('id_status', '1');
+
+        $pendaftaran->save();
+
+        flash('Anda sudah terdaftar')->success();
+        return back();
     }
 
     /**
@@ -68,7 +74,7 @@ class PendaftaranController extends Controller
     public function edit(string $id)
     {
         $data['pendaftaran'] = \App\Models\Pendaftaran::findOrFail($id);
-        $data['route'] = ['pendaftaran.update',$id];
+        $data['route'] = ['pendaftaran.update', $id];
         $data['method'] = 'PUT';
         $data['tombol'] = 'SIMPAN';
         return view('pendaftaran_create', $data);
@@ -78,24 +84,23 @@ class PendaftaranController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-{
-    $validasiData = $request->validate([
-        'nama_peserta' => 'required|unique:pendaftarans,nama_peserta,' . $id,
-        'tanggal_lahir' => 'required',
-        'alamat' => 'required',
-        'telepon' => 'required',
-        'email' => 'required',
-        'sekolah_asal' => 'required',
-]);
+    {
+        $validasiData = $request->validate([
+            'nama_peserta' => 'required|unique:pendaftarans,nama_peserta,' . $id,
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'email' => 'required',
+            'sekolah_asal' => 'required',
+        ]);
 
-    $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);
-    $pendaftaran->fill($validasiData);
-    $pendaftaran->save();
+        $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);
+        $pendaftaran->fill($validasiData);
+        $pendaftaran->save();
 
-    flash('Data berhasil diperbarui')->success();
-    return back();
-}
-
+        flash('Data berhasil diperbarui')->success();
+        return back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -112,6 +117,6 @@ class PendaftaranController extends Controller
     {
         $data['pendaftaran'] = \App\Models\Pendaftaran::all();
         $data['judul'] = 'Laporan PPDB';
-        return view('pendaftaran_laporan',$data);
+        return view('pendaftaran_laporan', $data);
     }
 }

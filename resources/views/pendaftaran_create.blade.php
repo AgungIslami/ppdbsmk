@@ -48,6 +48,7 @@
                             {!! Form::text('sekolah_asal', null, ['class' => 'form-control']) !!}
                             <span class="text-danger">{{ $errors->first('sekolah_asal') }}</span>
                         </div>
+                        
 
 
                         <div class="form-group mt-2">

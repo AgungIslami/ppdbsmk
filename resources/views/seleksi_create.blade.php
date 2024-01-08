@@ -31,13 +31,15 @@
                                     value="{{ old('nilai_rata_rata') }}">
                                 <span class="text-danger">{{ $errors->first('nilai_rata_rata') }}</span>
                             </div>
-                            <div class="form-group mt-3">
+                            <div class="form-group">
                                 <label for="id_status">Status</label>
-                                <select class="form-control" name="id_status">
+                                <select class="form-control" id="id_status" name="id_status">
+                                    @foreach ($statuses as $status)
+                                        <option value="{{ $status->id }}">{{ $status->nama }}</option>
+                                    @endforeach
                                 </select>
-                                <span class="text-danger">{{ $errors->first('id_status') }}</span>
                             </div>
-                            <div class="form-group mt-2">
+                                                        <div class="form-group mt-2">
                                 <button type="submit" class="btn btn-primary">SIMPAN</button>
                             </div>
                         </form>

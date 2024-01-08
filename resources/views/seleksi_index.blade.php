@@ -15,7 +15,6 @@
                                     <td>Nama Peserta</td>
                                     <td>Nilai</td>
                                     <td>Status</td>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,13 +23,21 @@
                                         <td>{{ $item->id_seleksi }}</td>
                                         <td>
                                             <div>
-                                                {{ $item->Pendaftaran->nama_peserta }}
+                                                @if ($item->Pendaftaran)
+                                                    {{ $item->Pendaftaran->nama_peserta ?? 'N/A' }}
+                                                @else
+                                                    N/A
+                                                @endif
                                             </div>
                                         </td>
                                         <td>{{ $item->nilai_rata_rata }}</td>
                                         <td>
                                             <div>
-                                                {{ $item->Pendaftaran->Status->nama }}
+                                                @if ($item->Pendaftaran && $item->Pendaftaran->Status)
+                                                    {{ $item->Pendaftaran->Status->nama ?? 'N/A' }}
+                                                @else
+                                                    N/A
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
