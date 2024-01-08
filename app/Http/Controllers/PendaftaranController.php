@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Pendaftaran;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PendaftaranController extends Controller
 {
@@ -11,6 +12,7 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
+        
         $data['pendaftaran'] = \App\Models\Pendaftaran::paginate(3);
         $data['judul'] = 'Data-data Pendaftaran';
         return view('pendaftaran_index',$data);
@@ -21,10 +23,12 @@ class PendaftaranController extends Controller
      */
     public function create()
     {
-        $data['$jenkel'] = [
-            'Laki-laki' => 'Laki-laki',
-            'Perempuan' => 'Perempuan',
-        ];
+        $data['pendaftaran'] = new \App\Models\Pendaftaran();
+        $data['route'] = 'pendaftaran.store';
+        $data['method'] = 'POST';
+        $data['tombol'] = 'SIMPAN';
+        
+
         return view('pendaftaran_create', $data);
     }
 
@@ -34,16 +38,17 @@ class PendaftaranController extends Controller
     public function store(Request $request)
     {
         $validasiData = $request->validate([
-            'id_pendaftaran' => 'required|unique:pendaftarans,id_pendaftaran',
-            'nama_peserta' => 'required',
+            'nama_peserta' => 'required ',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'sekolah_asal' => 'required',
-            'tanggal_pendaftaran' => 'required',
+            'sekolah_asal' => 'required',            
         ]);
-        $pendaftaran = \App\Models\Pendaftaran::create($validasiData);
+       $pendaftaran = new \App\Models\Pendaftaran();
+    $pendaftaran->fill($validasiData);
+    $pendaftaran->status = '1';
+    $pendaftaran->save();
 
     flash('Anda sudah terdaftar')->success();
     return back();
@@ -63,7 +68,10 @@ class PendaftaranController extends Controller
     public function edit(string $id)
     {
         $data['pendaftaran'] = \App\Models\Pendaftaran::findOrFail($id);
-        return view('pendaftaran_edit', $data);
+        $data['route'] = ['pendaftaran.update',$id];
+        $data['method'] = 'PUT';
+        $data['tombol'] = 'SIMPAN';
+        return view('pendaftaran_create', $data);
     }
 
     /**
@@ -72,14 +80,12 @@ class PendaftaranController extends Controller
     public function update(Request $request, string $id)
 {
     $validasiData = $request->validate([
-        'id_pendaftaran' => 'required|unique:pendaftarans,id_pendaftaran',
-        'nama_peserta' => 'required',
+        'nama_peserta' => 'required|unique:pendaftarans,nama_peserta,' . $id,
         'tanggal_lahir' => 'required',
         'alamat' => 'required',
         'telepon' => 'required',
         'email' => 'required',
         'sekolah_asal' => 'required',
-        'tanggal_pendaftaran' => 'required',
 ]);
 
     $pendaftaran = \App\Models\Pendaftaran::findOrFail($id);

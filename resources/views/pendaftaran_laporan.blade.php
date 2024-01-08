@@ -1,7 +1,6 @@
 @extends('layouts.sbadmin2')
 @section('content')
-
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row justify-container">
             <div class="col-md-12">
                 <center>
@@ -25,18 +24,18 @@
                     </thead>
                     <tbody>
                         @foreach ($pendaftaran as $a)
-                        <tr>
-                            <td>{{ $a->id }}</td>
-                            <td>{{ $a->kode_pendaftaran }}</td>
-                            <td>{{ $a->nama_calon_siswa }}</td>
-                            <td>{{ $a->tempat_lahir }}</td>
-                            <td>{{ $a->alamat }}</td>
-                            <td>{{ $a->tanggal_lahir }}</td>
-                            <td>{{ $a->jenis_kelamin }}</td>
-                            <td>{{ $a->asal_sekolah }}</td>
-                            <td>{{ $a->nomor_hp }}</td>
-                            <td>{{ $a->email }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ $a->id }}</td>
+                                <td>{{ $a->kode_pendaftaran }}</td>
+                                <td>{{ $a->nama_calon_siswa }}</td>
+                                <td>{{ $a->tempat_lahir }}</td>
+                                <td>{{ $a->alamat }}</td>
+                                <td>{{ $a->tanggal_lahir }}</td>
+                                <td>{{ $a->jenis_kelamin }}</td>
+                                <td>{{ $a->asal_sekolah }}</td>
+                                <td>{{ $a->nomor_hp }}</td>
+                                <td>{{ $a->email }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

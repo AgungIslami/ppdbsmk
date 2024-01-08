@@ -51,7 +51,10 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('pendaftaran.create') }}" >
-                    <span>Pendaftaran</span>
+                    <span>
+                        @if (auth()->check() && auth()->user()->roles != 'admin')
+                        Pendaftaran</span>
+                        @endif
                 </a>
             </li>
 
@@ -66,7 +69,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrasi</h6>
                         <a class="collapse-item" href="{{ route('pendaftaran.index') }}">Data PPDB</a>
-                        <a class="collapse-item" href="{{ route('pendaftaran.laporan') }}">Laporan PPDB</a>
+                        <a class="collapse-item" href="{{ route('pendaftaran.laporan') }}">
+                            @if (auth()->check() && auth()->user()->roles == 'admin')
+                            Laporan PPDB</a>
+                            @endif
                     </div>
                 </div>
             </li>
@@ -178,6 +184,7 @@
                     <div class="container-fluid">
 
                         @include('flash::message')
+
                         @yield('content')
 
                     </div>      

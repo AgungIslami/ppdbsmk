@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Seleksi;
+use App\Models\Pendaftaran;
 
 class SeleksiController extends Controller
 {
@@ -12,8 +13,8 @@ class SeleksiController extends Controller
      */
     public function index()
     {
-        $seleksi = Seleksi::paginate(5); // Ambil semua data seleksi dari model Seleksi
-    return view('seleksi_index', ['seleksi' => $seleksi]);
+        $data ['seleksi'] = Seleksi::paginate(5); // Ambil semua data seleksi dari model Seleksi
+    return view('seleksi_index',$data);
     }
 
     /**
