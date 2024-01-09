@@ -90,7 +90,10 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('seleksi.index') }}">Hasil Seleksi</a>
+                        @if (auth()->check() && auth()->user()->roles == 'admin')
                         <a class="collapse-item" href="{{ route('seleksi.create') }}">Tambah Seleksi</a>
+                        @endif
+
                     </div>
                 </div>
             </li>

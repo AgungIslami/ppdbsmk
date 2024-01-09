@@ -42,7 +42,6 @@ class PendaftaranController extends Controller
             'telepon' => 'required',
             'email' => 'required',
             'sekolah_asal' => 'required',
-            'id_status' => 'required', // Assuming you have a field in your form for id_status
         ]);
 
         // You can add further validation logic for 'id_status' if needed

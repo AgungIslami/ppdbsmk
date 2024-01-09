@@ -10,19 +10,16 @@
                 <div class="card-body">
                     <div class="container">
                     <div class="text-center mt-3">
+                        @if (auth()->check() && auth()->user()->roles != 'admin')
                         <a href="{{ route('pendaftaran.create') }}" class="btn btn-primary btn-lg">Daftar Sekarang</a>
+                        @endif
+
                     </div>
                     <br>
 
-                        <div class="row mb-2">
-                            <div class="col-md-4 mb-2">
-                                <img src="{{ asset('sbadmin2') }}/img/brosur.jpg" class="img-fluid" style="max-width: 280px; height: auto">
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <img src="{{ asset('sbadmin2') }}/img/brosur.jpg" class="img-fluid" style="max-width: 280px; height: auto">
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <img src="{{ asset('sbadmin2') }}/img/brosur.jpg" class="img-fluid" style="max-width: 280px; height: auto">
+                        <div class="row mb-18">
+                            <div class="col-md-12 mb-8">
+                                <img src="{{ asset('sbadmin2') }}/img/Artboard.png" class="img-fluid" style="max-width: auto; height: auto">
                             </div>
                         </div>
                         <br>
